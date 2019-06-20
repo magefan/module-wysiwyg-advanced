@@ -8,11 +8,11 @@ This extension allows you to extend TinyMCE 4 in Magento 2, e.g.: add text color
 Based on [stackexchange answer](https://magento.stackexchange.com/questions/263745/magento-2-3-tinymce4-toolbar-and-plugin-configuration#answer-263891) by [Mike Dubs](https://magento.stackexchange.com/users/77224/mike-dubs)
 
 
-
+<div>
           <img
             src="https://magefan.com/media/wysiwyg/git/TinyMCE4-magento2.png"
             alt="TinyMCE 4 in Magento 2" />
-  
+  </div>
 
 ## Installation
 ```
