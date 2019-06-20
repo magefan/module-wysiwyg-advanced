@@ -5,7 +5,7 @@
 
 This extension allows you to extend TinyMCE 4 tools in Magento 2, e.g.: add <strong>text color</strong>, image, html code, undo-redo, styleselect, fontsizeselect, forecolor backcolor, bold, italic, underline, strikethrough, alignleft, aligncenter, alignright alignjustify, bullist, numlist, outdent, indent, table, image, code.
 
-Based on [stackexchange answer](https://magento.stackexchange.com/questions/263745/magento-2-3-tinymce4-toolbar-and-plugin-configuration#answer-263891) by [Mike Dubs](https://magento.stackexchange.com/users/77224/mike-dubs)
+Based on [stackexchange answer](https://magento.stackexchange.com/questions/263745/magento-2-3-tinymce4-toolbar-and-plugin-configuration#answer-263891) by [Mike Dubs](https://magento.stackexchange.com/users/77224/mike-dubs).
 
 
 <div>
