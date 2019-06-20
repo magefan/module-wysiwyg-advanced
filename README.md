@@ -19,6 +19,7 @@ Based on [stackexchange answer](https://magento.stackexchange.com/questions/2637
 composer require magefan/module-wysiwyg-advanced
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
 ```
 ## Other Magento 2 Extensions by Magefan
   * [Magento 2 Blog Extension](https://magefan.com/magento2-blog-extension)
