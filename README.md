@@ -10,7 +10,7 @@ Based on [stackexchange answer](https://magento.stackexchange.com/questions/2637
 
 <div>
           <img
-            src="https://magefan.com/media/wysiwyg/git/TinyMCE4-magento2.png"
+            src="https://magefan.com/media/wysiwyg/Blog/TinyMCE4-magento2-v2.png"
             alt="TinyMCE 4 in Magento 2" />
 </div>
 
