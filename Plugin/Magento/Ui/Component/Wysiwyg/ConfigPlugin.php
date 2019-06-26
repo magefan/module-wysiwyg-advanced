@@ -26,6 +26,25 @@ class ConfigPlugin
         $this->activeEditor = $activeEditor;
     }
 
+
+    /**
+     * Enable variables & widgets on product edit page
+     *
+     * @param \Magento\Ui\Component\Wysiwyg\ConfigInterface $configInterface
+     * @param array $data
+     * @return array
+     */
+    public function beforeGetConfig(
+        \Magento\Ui\Component\Wysiwyg\ConfigInterface $configInterface,
+        $data = []
+    ) {
+        $data['add_variables'] = true;
+        $data['add_widgets'] = true;
+
+        return [$data];
+    }
+        
+
     /**
      * Return WYSIWYG configuration
      *
