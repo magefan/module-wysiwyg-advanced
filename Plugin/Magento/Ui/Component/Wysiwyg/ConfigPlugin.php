@@ -5,6 +5,8 @@
  */
 namespace Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg;
 
+use Magento\Framework\App\ObjectManager;
+
 /**
  * Class ConfigPlugin
  * @package Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg
@@ -19,11 +21,18 @@ class ConfigPlugin
 
     /**
      * ConfigPlugin constructor.
-     * @param \Magento\Ui\Block\Wysiwyg\ActiveEditor $activeEditor
+     * @param null $activeEditor
      */
-    public function __construct(\Magento\Ui\Block\Wysiwyg\ActiveEditor $activeEditor)
-    {
-        $this->activeEditor = $activeEditor;
+    public function __construct(
+        $activeEditor = null
+    ) {
+        try {
+            /* Fix for Magento 2.1.x & 2.2.x that does not have this class and plugin should not work there */
+            if (class_exists(\Magento\Ui\Block\Wysiwyg\ActiveEditor::class)) {
+                $this->activeEditor = $activeEditor
+                    ?: ObjectManager::getInstance()->get(\Magento\Ui\Block\Wysiwyg\ActiveEditor::class);
+            }
+        } catch (\Exception $e) {}
     }
 
 
@@ -38,6 +47,10 @@ class ConfigPlugin
         \Magento\Ui\Component\Wysiwyg\ConfigInterface $configInterface,
         $data = []
     ) {
+        if (!$this->activeEditor) {
+            return [$data];            
+        }
+
         $data['add_variables'] = true;
         $data['add_widgets'] = true;
 
@@ -56,6 +69,11 @@ class ConfigPlugin
         \Magento\Ui\Component\Wysiwyg\ConfigInterface $configInterface,
         \Magento\Framework\DataObject $result
     ) {
+
+        if (!$this->activeEditor) {
+            return $result;            
+        }
+
         // Get current wysiwyg adapter's path
         $editor = $this->activeEditor->getWysiwygAdapterPath();
 
