@@ -85,7 +85,6 @@ class ConfigPlugin
             }
 
             $settings = $result->getData('settings');
-
             if (!is_array($settings)) {
                 $settings = [];
             }
@@ -98,6 +97,8 @@ class ConfigPlugin
 
             $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect | fontsizeselect | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
             $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime | widget | searchreplace visualblocks  help | hr pagebreak';
+
+            $settings['extended_valid_elements'] = 'style[type] head,script[src|async|defer|type|charset],a[class|name|href|target|title|onclick|rel],iframe[src|style|width|height|scrolling|marginwidth|marginheight|frameborder],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]';
 
             $result->setData('settings', $settings);
             return $result;
