@@ -8,8 +8,7 @@ namespace Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg;
 use Magento\Framework\App\ObjectManager;
 
 /**
- * Class ConfigPlugin
- * @package Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg
+ * Class Config Plugin
  */
 class ConfigPlugin
 {
@@ -32,9 +31,10 @@ class ConfigPlugin
                 $this->activeEditor = $activeEditor
                     ?: ObjectManager::getInstance()->get(\Magento\Ui\Block\Wysiwyg\ActiveEditor::class);
             }
-        } catch (\Exception $e) {}
-    }
+        } catch (\Exception $e) {
 
+        }
+    }
 
     /**
      * Enable variables & widgets on product edit page
@@ -48,7 +48,7 @@ class ConfigPlugin
         $data = []
     ) {
         if (!$this->activeEditor) {
-            return [$data];            
+            return [$data];
         }
 
         $data['add_variables'] = true;
@@ -56,7 +56,6 @@ class ConfigPlugin
 
         return [$data];
     }
-        
 
     /**
      * Return WYSIWYG configuration
@@ -71,16 +70,16 @@ class ConfigPlugin
     ) {
 
         if (!$this->activeEditor) {
-            return $result;            
+            return $result;
         }
 
         // Get current wysiwyg adapter's path
         $editor = $this->activeEditor->getWysiwygAdapterPath();
 
         // Is the current wysiwyg tinymce v4?
-        if(strpos($editor,'tinymce4Adapter')){
+        if (strpos($editor, 'tinymce4Adapter')) {
 
-            if (($result->getDataByPath('settings/menubar')) || ($result->getDataByPath('settings/toolbar')) || ($result->getDataByPath('settings/plugins'))){
+            if (($result->getDataByPath('settings/menubar')) || ($result->getDataByPath('settings/toolbar')) || ($result->getDataByPath('settings/plugins'))) {
                 // do not override ui_element config (unsure if this is needed)
                 return $result;
             }
@@ -91,7 +90,7 @@ class ConfigPlugin
                 $settings = [];
             }
 
-            // configure tinymce settings 
+            // configure tinymce settings
             $settings['menubar'] = true;
             $settings['image_advtab'] = true;
 
@@ -102,7 +101,7 @@ class ConfigPlugin
 
             $result->setData('settings', $settings);
             return $result;
-        } else{ // don't make any changes if the current wysiwyg editor is not tinymce 4
+        } else { // don't make any changes if the current wysiwyg editor is not tinymce 4
             return $result;
         }
     }
