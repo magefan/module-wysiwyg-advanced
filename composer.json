@@ -5,7 +5,7 @@
         "magefan/module-community" : ">=2.0.8",
     },
     "type": "magento2-module",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
