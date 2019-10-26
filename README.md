@@ -1,3 +1,5 @@
+# Better Magento 2 WYSIWYG TinyMCE4 Editorby [Magefan](https://magefan.com)
+
 ## Overview 
 
 [![Total Downloads](https://poser.pugx.org/magefan/module-wysiwyg-advanced/downloads)](https://packagist.org/packages/magefan/module-wysiwyg-advanced)
