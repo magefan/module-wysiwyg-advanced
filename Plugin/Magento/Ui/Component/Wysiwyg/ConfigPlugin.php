@@ -68,7 +68,6 @@ class ConfigPlugin
         \Magento\Ui\Component\Wysiwyg\ConfigInterface $configInterface,
         \Magento\Framework\DataObject $result
     ) {
-
         if (!$this->activeEditor) {
             return $result;
         }
@@ -99,6 +98,9 @@ class ConfigPlugin
             $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect | fontsizeselect | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
             $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime | widget | searchreplace visualblocks  help | hr pagebreak';
             $settings['force_p_newlines'] = false;
+
+            $settings['valid_children'] = '+body[style]';
+
             $result->setData('settings', $settings);
             return $result;
         } else { // don't make any changes if the current wysiwyg editor is not tinymce 4
