@@ -44,4 +44,6 @@ php bin/magento setup:static-content:deploy -f
   * [Magento 2 Alternate Hreflang Extension](https://magefan.com/magento2-alternate-hreflang-extension)
   * [Magento 2 Dynamic Categories](https://magefan.com/magento-2-dynamic-categories)
   * [Magento 2 CMS Display Rules Extension](https://magefan.com/magento-2-cms-display-rules-extension)
+  * [Magento 2 Translation Extension](https://magefan.com/magento-2-translation-extension)
+  * [Magento 2 WebP Optimized Images Extension](https://magefan.com/magento-2-webp-optimized-images)
   * [Magento 2 Zero Downtime Deployment](https://magefan.com/blog/magento-2-zero-downtime-deployment)
