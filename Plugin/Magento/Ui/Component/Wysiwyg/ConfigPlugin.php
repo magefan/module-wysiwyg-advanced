@@ -6,6 +6,9 @@
 namespace Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg;
 
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Config Plugin
@@ -19,11 +22,23 @@ class ConfigPlugin
     protected $activeEditor;
 
     /**
+     * @var RequestInterface
+     */
+    private $request;
+
+    /**
+     * @var ScopeConfigInterface
+     */
+    private $scopeConfig;
+
+    /**
      * ConfigPlugin constructor.
      * @param null $activeEditor
      */
     public function __construct(
-        $activeEditor = null
+        $activeEditor = null,
+        RequestInterface $request = null,
+        ScopeConfigInterface $scopeConfig = null
     ) {
         try {
             /* Fix for Magento 2.1.x & 2.2.x that does not have this class and plugin should not work there */
@@ -34,6 +49,10 @@ class ConfigPlugin
         } catch (\Exception $e) {
 
         }
+
+        $this->request = $request ?: ObjectManager::getInstance()->get(\Magento\Framework\App\RequestInterface::class);
+        $this->scopeConfig = $scopeConfig ?: ObjectManager::getInstance()->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
+
     }
 
     /**
@@ -102,9 +121,68 @@ class ConfigPlugin
             $settings['valid_children'] = '+body[style]';
 
             $result->setData('settings', $settings);
+
+            $type = false;
+            if (in_array($this->request->getModuleName(), ['cms', 'catalog'])) {
+                $type = $this->request->getModuleName() . '_' . $this->request->getControllerName();
+            } elseif ('blog' == $this->request->getModuleName()) {
+                $type = $this->request->getModuleName();
+            }
+
+            if ($this->isEnabledOverided($type)) {
+                $result->setData('enabled', $this->isEnabled($type));
+                $result->setData('hidden', $this->isHidden($type));
+            }
+
             return $result;
         } else { // don't make any changes if the current wysiwyg editor is not tinymce 4
             return $result;
         }
+    }
+
+    /**
+     * Check whether Wysiwyg enabled option is overided for the page type
+     *
+     * @param string $type
+     * @return bool
+     */
+    private function isEnabledOverided($type)
+    {
+        $wysiwygState = $this->scopeConfig->getValue(
+            'mfwysiwygadvanced/general/' . $type . '_enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+        return $wysiwygState;
+    }
+
+
+    /**
+     * Check whether Wysiwyg is enabled or not
+     *
+     * @param string $type
+     * @return bool
+     */
+    private function isEnabled($type)
+    {
+        $wysiwygState = $this->scopeConfig->getValue(
+            'mfwysiwygadvanced/general/cms_' . $type . '_enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+        return in_array($wysiwygState, [\Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_ENABLED, \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_HIDDEN]);
+    }
+
+    /**
+     * Check whether Wysiwyg is loaded on demand or not
+     *
+     * @param string $type
+     * @return bool
+     */
+    private function isHidden($type)
+    {
+        $status = $this->scopeConfig->getValue(
+            'mfwysiwygadvanced/general/cms_' . $type . '_enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+        return $status == \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_HIDDEN;
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mfwysiwygadvanced" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>WYSIWYG Advanced</label>
+            <tab>magefan</tab>
+            <resource>Magefan_WysiwygAdvanced::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+                <field id="version" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magefan\WysiwygAdvanced\Block\Adminhtml\System\Config\Form\Info</frontend_model>
+                </field>
+                <field id="cms_page_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WYSIWYG Editor on CMS Page</label>
+                    <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
+                </field>
+                <field id="cms_block_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WYSIWYG Editor on CMS Block</label>
+                    <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
+                </field>
+
+                <field id="catalog_category_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WYSIWYG Editor on Catalog Category</label>
+                    <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
+                </field>
+                <field id="catalog_product_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WYSIWYG Editor on Catalog Product</label>
+                    <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
+                </field>
+                <field id="blog_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WYSIWYG Editor on Blog</label>
+                    <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mfwysiwygadvanced>
+            <general>
+                <cms_page_enabled>0</cms_page_enabled>
+                <cms_block_enabled>0</cms_block_enabled>
+                <catalog_category_enabled>0</catalog_category_enabled>
+                <catalog_product_enabled>0</catalog_product_enabled>
+                <blog_enabled>0</blog_enabled>
+            </general>
+        </mfwysiwygadvanced>
+    </default>
+</config>
