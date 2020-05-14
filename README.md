@@ -1,4 +1,4 @@
-# Better Magento 2 WYSIWYG TinyMCE4 Editorby [Magefan](https://magefan.com)
+# Better Magento 2 WYSIWYG TinyMCE4 Editor by [Magefan](https://magefan.com)
 
 ## Overview 
 
