@@ -165,7 +165,7 @@ class ConfigPlugin
     private function isEnabled($type)
     {
         $wysiwygState = $this->scopeConfig->getValue(
-            'mfwysiwygadvanced/general/cms_' . $type . '_enabled',
+            'mfwysiwygadvanced/general/' . $type . '_enabled',
             ScopeInterface::SCOPE_STORE
         );
         return in_array($wysiwygState, [\Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_ENABLED, \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_HIDDEN]);
@@ -180,7 +180,7 @@ class ConfigPlugin
     private function isHidden($type)
     {
         $status = $this->scopeConfig->getValue(
-            'mfwysiwygadvanced/general/cms_' . $type . '_enabled',
+            'mfwysiwygadvanced/general/' . $type . '_enabled',
             ScopeInterface::SCOPE_STORE
         );
         return $status == \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_HIDDEN;
