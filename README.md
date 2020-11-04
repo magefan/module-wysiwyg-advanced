@@ -35,6 +35,7 @@ php bin/magento setup:static-content:deploy -f
   * [Magento 2 Auto Language Switcher Extension](https://magefan.com/magento-2-auto-language-switcher)
   * [Magento 2 GeoIP Switcher Extension](https://magefan.com/magento-2-geoip-switcher-extension)
   * [Magento 2 YouTube Widget Extension](https://magefan.com/magento2-youtube-extension)
+  * [Magento 2 Product Grid Inline Editor](https://magefan.com/magento-2-product-grid-inline-editor)
   * [Magento 2 Product Widget Advanced Extension](https://magefan.com/magento-2-product-widget)
   * [Magento 2 Conflict Detector Extension](https://magefan.com/magento2-conflict-detector)
   * [Magento 2 Lazy Load Extension](https://magefan.com/magento-2-image-lazy-load-extension)
