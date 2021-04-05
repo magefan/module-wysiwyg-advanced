@@ -53,3 +53,4 @@ php bin/magento setup:static-content:deploy -f
   * [Magento 2 Admin View Extension](https://magefan.com/magento-2-admin-view-extension)
   * [Magento 2 Zero Downtime Deployment](https://magefan.com/blog/magento-2-zero-downtime-deployment)
   * [Magento 2 Better Order Grid Extension](https://magefan.com/magento-2-better-order-grid-extension)
+  * [Magento 2 Admin Email Notifications](https://magefan.com/magento-2-admin-email-notifications)
