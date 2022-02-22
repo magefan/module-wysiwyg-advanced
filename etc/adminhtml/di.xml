@@ -10,4 +10,7 @@
 	<type name="Magento\Ui\Component\Wysiwyg\ConfigInterface">
 		<plugin disabled="false" name="Magefan_WysiwygAdvanced_Plugin_Magento_Ui_Component_Wysiwyg_ConfigInterface" sortOrder="10" type="Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg\ConfigPlugin"/>
 	</type>
+    <type name="Magento\PageBuilder\Model\ConfigInterface">
+        <plugin name="Magefan_WysiwygAdvanced_Plugin_Backend_Magento_PageBuilder_Model_ConfigInterface" type="Magefan\WysiwygAdvanced\Plugin\Magento\PageBuilder\Model\ConfigInterface" sortOrder="10" disabled="false"/>
+    </type>
 </config>
