@@ -1,4 +1,4 @@
-# Better Magento 2 WYSIWYG TinyMCE4 Editor by [Magefan](https://magefan.com)
+# Better Magento 2 WYSIWYG TinyMCE4 & TinyMCE5 Editor by [Magefan](https://magefan.com)
 
 <img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
@@ -7,7 +7,7 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-wysiwyg-advanced/downloads)](https://packagist.org/packages/magefan/module-wysiwyg-advanced)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-wysiwyg-advanced/v/stable)](https://packagist.org/packages/magefan/module-wysiwyg-advanced)
 
-This extension allows you to extend TinyMCE 4 tools in Magento 2, e.g.: add <strong>text color</strong>, image, html code, undo-redo, styleselect, fontsizeselect, forecolor backcolor, bold, italic, underline, strikethrough, alignleft, aligncenter, alignright alignjustify, bullist, numlist, outdent, indent, table, image, code. [Read more details...](https://magefan.com/blog/magento-2.3-tinymce-4-text-color-tool-missing)
+This extension allows you to extend TinyMCE 4 & 5 tools in Magento 2, e.g.: add <strong>text color</strong>, image, html code, undo-redo, styleselect, fontsizeselect, forecolor backcolor, bold, italic, underline, strikethrough, alignleft, aligncenter, alignright alignjustify, bullist, numlist, outdent, indent, table, image, code. [Read more details...](https://magefan.com/blog/magento-2.3-tinymce-4-text-color-tool-missing)
 
 Based on [stackexchange answer](https://magento.stackexchange.com/questions/263745/magento-2-3-tinymce4-toolbar-and-plugin-configuration#answer-263891) by [Mike Dubs](https://magento.stackexchange.com/users/77224/mike-dubs).
 
