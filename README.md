@@ -34,6 +34,7 @@ php bin/magento setup:static-content:deploy -f
   * [Magento 2 Edit Order Extension](https://magefan.com/magento-2-edit-order-extension)
   * [Magento 2 Better Order Grid Extension](https://magefan.com/magento-2-better-order-grid-extension)
   * [Magento 2 Extended Product Grid](https://magefan.com/magento-2-product-grid-inline-editor)
+  * [Magento 2 Product Tabs Extension](https://magefan.com/magento-2/extensions/product-tabs)
   * [Magento 2 Google Shopping Feed](https://magefan.com/magento-2-google-shopping-feed-extension)
   * [Magento 2 Admin View Extension](https://magefan.com/magento-2-admin-view-extension)
   * [Magento 2 Zero Downtime Deployment](https://magefan.com/blog/magento-2-zero-downtime-deployment)
