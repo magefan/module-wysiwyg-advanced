@@ -14,6 +14,7 @@
                 <catalog_category_enabled>0</catalog_category_enabled>
                 <catalog_product_enabled>0</catalog_product_enabled>
                 <blog_enabled>0</blog_enabled>
+                <mfproducttabs_enabled>0</mfproducttabs_enabled>
             </general>
         </mfwysiwygadvanced>
     </default>

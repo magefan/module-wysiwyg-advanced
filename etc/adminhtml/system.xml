@@ -27,16 +27,20 @@
                     <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
                 </field>
 
-                <field id="catalog_category_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="catalog_category_enabled" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>WYSIWYG Editor on Catalog Category</label>
                     <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
                 </field>
-                <field id="catalog_product_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="catalog_product_enabled" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>WYSIWYG Editor on Catalog Product</label>
                     <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
                 </field>
-                <field id="blog_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="blog_enabled" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>WYSIWYG Editor on Blog</label>
+                    <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
+                </field>
+                <field id="mfproducttabs_enabled" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WYSIWYG Editor on Product Tabs</label>
                     <source_model>Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg\Enabled</source_model>
                 </field>
             </group>

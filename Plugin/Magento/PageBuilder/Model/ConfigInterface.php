@@ -51,6 +51,8 @@ class ConfigInterface
             $type = $this->request->getModuleName() . '_' . $this->request->getControllerName();
         } elseif ('blog' == $this->request->getModuleName()) {
             $type = $this->request->getModuleName();
+        } elseif ('mfproducttabs' == $this->request->getModuleName()) {
+            $type = $this->request->getModuleName();
         }
 
         $wysiwygState = $this->scopeConfig->getValue(
