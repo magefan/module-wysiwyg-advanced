@@ -127,6 +127,8 @@ class ConfigPlugin
                 $type = $this->request->getModuleName() . '_' . $this->request->getControllerName();
             } elseif ('blog' == $this->request->getModuleName()) {
                 $type = $this->request->getModuleName();
+            } elseif ('mfproducttabs' == $this->request->getModuleName()) {
+                $type = $this->request->getModuleName();
             }
 
             if ($this->isEnabledOverided($type)) {
