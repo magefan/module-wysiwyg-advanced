@@ -99,3 +99,4 @@ php bin/magento setup:static-content:deploy -f
    
   ### Shopify Apps
   * [Shopify Login As Customer](https://apps.shopify.com/login-as-customer)
+  * [Shopify Blog](https://apps.shopify.com/magefan-blog)
