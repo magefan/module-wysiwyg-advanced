@@ -27,6 +27,32 @@ php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy -f
 ```
+
+For use emoticons from tinymce5Adapter need run in db:
+```
+ALTER TABLE magefan_blog_post CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE magefan_blog_category CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE magefan_blog_tag CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+ALTER TABLE catalog_product_entity_varchar CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE catalog_product_entity_text CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE catalog_category_entity_varchar CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE catalog_category_entity_text CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+```
+Also need change from utf8 to utf8mb4 in in app/etc/env.php
+```
+'db' => [
+        'table_prefix' => '',
+        'connection' => [
+            'default' => [
+...
+                'initStatements' => 'SET NAMES utf8mb4;',
+...
+            ]
+        ]
+    ],
+```
+
 ## [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
 ### [Magento 2 Admin Panel Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
   * [Magento 2 Automatic Related Products](https://magefan.com/magento-2-automatic-related-products)
