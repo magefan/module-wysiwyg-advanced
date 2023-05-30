@@ -28,18 +28,8 @@ php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy -f
 ```
 
-For use emoticons from tinymce5Adapter need run in db:
-```
-ALTER TABLE magefan_blog_post CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-ALTER TABLE magefan_blog_category CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-ALTER TABLE magefan_blog_tag CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-
-ALTER TABLE catalog_product_entity_varchar CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-ALTER TABLE catalog_product_entity_text CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-ALTER TABLE catalog_category_entity_varchar CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-ALTER TABLE catalog_category_entity_text CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-```
-Also need change from utf8 to utf8mb4 in in app/etc/env.php
+## Enabling emoji 😋
+1. Change "utf8" to "utf8mb4" for initStatements in app/etc/env.php file. Example:
 ```
 'db' => [
         'table_prefix' => '',
@@ -52,6 +42,23 @@ Also need change from utf8 to utf8mb4 in in app/etc/env.php
         ]
     ],
 ```
+
+2. Alter database tables and set utf8mb4 encoding. Run SQL queries:
+```
+# For blog posts
+ALTER TABLE magefan_blog_post CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+# For blog categories
+ALTER TABLE magefan_blog_category CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+# For blog tags
+ALTER TABLE magefan_blog_tag CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+# For products
+ALTER TABLE catalog_product_entity_varchar CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE catalog_product_entity_text CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+# For categories
+ALTER TABLE catalog_category_entity_varchar CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+ALTER TABLE catalog_category_entity_text CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+```
+
 
 ## [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
 ### [Magento 2 Admin Panel Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
