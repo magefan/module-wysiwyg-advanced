@@ -33,6 +33,7 @@ php bin/magento setup:static-content:deploy -f
 
 ### [Magento 2 Admin Panel Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
 
+  * [Magento 2 Admin Action Log](https://magefan.com/magento-2-admin-action-log)
   * [Magento 2 Edit Order Extension](https://magefan.com/magento-2-edit-order-extension)
   * [Magento 2 Better Order Grid Extension](https://magefan.com/magento-2-better-order-grid-extension)
   * [Magento 2 Extended Product Grid](https://magefan.com/magento-2-product-grid-inline-editor)
