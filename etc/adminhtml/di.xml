@@ -8,6 +8,8 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<type name="Magento\Ui\Component\Wysiwyg\ConfigInterface">
+        <!-- Disable Magepow\Promotionbar\Plugin\Config -->
+        <plugin name="promotionbar_wysiwyg_config" disabled="true" />
 		<plugin disabled="false" name="Magefan_WysiwygAdvanced_Plugin_Magento_Ui_Component_Wysiwyg_ConfigInterface" sortOrder="10" type="Magefan\WysiwygAdvanced\Plugin\Magento\Ui\Component\Wysiwyg\ConfigPlugin"/>
 	</type>
     <type name="Magento\PageBuilder\Model\ConfigInterface">
