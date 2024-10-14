@@ -95,7 +95,9 @@ class ConfigPlugin
         $editor = $this->activeEditor->getWysiwygAdapterPath();
 
         // Is the current wysiwyg tinymce v4 or v5?
-        if (strpos($editor, 'tinymce4Adapter') || strpos($editor, 'tinymce5Adapter')) {
+        if (strpos($editor, 'tinymce4Adapter') || strpos($editor, 'tinymce5Adapter') || strpos($editor, 'tinymceAdapter')) {
+            
+            $isVersion7 = $this->isVersion7($editor);
 
             if (($result->getDataByPath('settings/menubar')) || ($result->getDataByPath('settings/toolbar')) || ($result->getDataByPath('settings/plugins'))) {
                 // do not override ui_element config (unsure if this is needed)
@@ -112,11 +114,19 @@ class ConfigPlugin
             $settings['menubar'] = true;
             $settings['image_advtab'] = true;
 
-            $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table textcolor toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
+            if ($isVersion7) {
+                //TinyMCE ver 7 got some plugins deprecated
+                $settings['plugins'] = 'accordion advlist anchor autolink autoresize autosave charmap code codesample directionality emoticons fullscreen help image importcss insertdatetime link lists media nonbreaking pagebreak preview quickbars save searchreplace table visualblocks visualchars wordcount magentovariable magentowidget';
+            } else {
+                $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table textcolor toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
+            }
 
             $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect | fontselect | fontsizeselect | lineheight | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
             $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime | widget | searchreplace visualblocks  help | hr pagebreak | emoticons';
-            $settings['force_p_newlines'] = false;
+            if (!$isVersion7) {
+                //option is deprecated in TinyMCE ver 7
+                $settings['force_p_newlines'] = false;
+            }
 
             $settings['valid_children'] = '+body[style]';
 
@@ -140,6 +150,22 @@ class ConfigPlugin
         } else { // don't make any changes if the current wysiwyg editor is not tinymce 4
             return $result;
         }
+    }
+
+    /**
+     * TinyMCE ver 7 adapter in the latest Adobe Commerce hase name tinymceAdapter
+     * 
+     * @param $editor
+     * @return bool
+     */
+    protected function isVersion7($editor)
+    {
+        if ($editor) {
+            $editorArray = explode('/', $editor);
+            return in_array('tinymceAdapter', $editorArray);
+        }
+        
+        return false;
     }
 
     /**
