@@ -112,15 +112,16 @@ class ConfigPlugin
             $settings['menubar'] = true;
             $settings['image_advtab'] = true;
 
+            $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect | fontselect | fontsizeselect | lineheight | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
+            $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime | widget | searchreplace visualblocks  help | hr pagebreak | emoticons';
+
             if (strpos($editor, 'tinymceAdapter')) {
+                $settings['toolbar1'] = str_replace('formatselect | styleselect | fontselect | fontsizeselect','blocks | styles | fontfamily | fontsize', $settings['toolbar1']);
                 $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
             } else {
                 $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table textcolor toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
                 $settings['force_p_newlines'] = false;
             }
-
-            $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect | fontselect | fontsizeselect | lineheight | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
-            $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime | widget | searchreplace visualblocks  help | hr pagebreak | emoticons';
 
             $settings['valid_children'] = '+body[style]';
 
