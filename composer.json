@@ -2,10 +2,10 @@
     "name": "magefan/module-wysiwyg-advanced",
     "description": "Extend TinyMCE 4 in Magento 2",
     "require": {
-        "magefan/module-community" : ">=2.1.16"
+        "magefan/module-community" : ">=2.1.30"
     },
     "type": "magento2-module",
-    "version": "2.0.15",
+    "version": "2.0.16",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
