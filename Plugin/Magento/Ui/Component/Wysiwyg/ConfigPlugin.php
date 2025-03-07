@@ -113,7 +113,7 @@ class ConfigPlugin
             $settings['image_advtab'] = true;
 
             if (strpos($editor, 'tinymceAdapter')) {
-                $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
+                $settings['plugins'] = 'advlist autolink code directionality link media table visualchars anchor charmap codesample help image insertdatetime lists nonbreaking pagebreak preview searchreplace visualblocks wordcount magentovariable magentowidget emoticons';
                 $settings['toolbar1'] = 'magentovariable magentowidget | blocks | styles | fontfamily | fontsizeinput | lineheight | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
             } else {
                 $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table textcolor toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
