@@ -37,8 +37,8 @@ class ConfigPlugin
      */
     public function __construct(
         $activeEditor = null,
-        RequestInterface $request = null,
-        ScopeConfigInterface $scopeConfig = null
+        ?RequestInterface $request = null,
+        ?ScopeConfigInterface $scopeConfig = null
     ) {
         try {
             /* Fix for Magento 2.1.x & 2.2.x that does not have this class and plugin should not work there */
