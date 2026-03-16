@@ -12,7 +12,7 @@ namespace Magefan\WysiwygAdvanced\Model\Config\Source\Wysiwyg;
 class Enabled implements \Magento\Framework\Option\ArrayInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function toOptionArray()
     {

@@ -10,9 +10,6 @@ use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 
-/**
- * Class Config Plugin
- */
 class ConfigPlugin
 {
 
@@ -32,8 +29,11 @@ class ConfigPlugin
     private $scopeConfig;
 
     /**
-     * ConfigPlugin constructor.
-     * @param null $activeEditor
+     * СonfigPlugin constructor.
+     *
+     * @param \Magento\Ui\Block\Wysiwyg\ActiveEditor|null $activeEditor
+     * @param RequestInterface|null $request
+     * @param ScopeConfigInterface|null $scopeConfig
      */
     public function __construct(
         $activeEditor = null,
@@ -46,13 +46,13 @@ class ConfigPlugin
                 $this->activeEditor = $activeEditor
                     ?: ObjectManager::getInstance()->get(\Magento\Ui\Block\Wysiwyg\ActiveEditor::class);
             }
-        } catch (\Exception $e) {
-
+        } catch (\Exception $e) { // phpcs:ignore
+            // Intentionally empty; ActiveEditor class may not exist in Magento 2.1.x / 2.2.x
         }
 
         $this->request = $request ?: ObjectManager::getInstance()->get(\Magento\Framework\App\RequestInterface::class);
-        $this->scopeConfig = $scopeConfig ?: ObjectManager::getInstance()->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
-
+        $this->scopeConfig = $scopeConfig
+            ?: ObjectManager::getInstance()->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
     }
 
     /**
@@ -95,9 +95,13 @@ class ConfigPlugin
         $editor = $this->activeEditor->getWysiwygAdapterPath();
 
         // Is the current wysiwyg tinymce v4 or v5 or v7?
-        if (strpos($editor, 'tinymce4Adapter') || strpos($editor, 'tinymce5Adapter') || strpos($editor, 'tinymceAdapter')) {
+        if (strpos($editor, 'tinymce4Adapter') !== false
+            || strpos($editor, 'tinymce5Adapter') !== false
+            || strpos($editor, 'tinymceAdapter') !== false) {
 
-            if (($result->getDataByPath('settings/menubar')) || ($result->getDataByPath('settings/toolbar')) || ($result->getDataByPath('settings/plugins'))) {
+            if (($result->getDataByPath('settings/menubar'))
+                || ($result->getDataByPath('settings/toolbar'))
+                || ($result->getDataByPath('settings/plugins'))) {
                 // do not override ui_element config (unsure if this is needed)
                 return $result;
             }
@@ -112,16 +116,27 @@ class ConfigPlugin
             $settings['menubar'] = true;
             $settings['image_advtab'] = true;
 
-            if (strpos($editor, 'tinymceAdapter')) {
-                $settings['plugins'] = 'advlist autolink code directionality link media table visualchars anchor charmap codesample help image insertdatetime lists nonbreaking pagebreak preview searchreplace visualblocks wordcount magentovariable magentowidget emoticons';
-                $settings['toolbar1'] = 'magentovariable magentowidget | blocks | styles | fontfamily | fontsizeinput | lineheight | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
+            if (strpos($editor, 'tinymceAdapter') !== false) {
+                $settings['plugins'] = 'advlist autolink code directionality link media table visualchars'
+                    . ' anchor charmap codesample help image insertdatetime lists nonbreaking pagebreak'
+                    . ' preview searchreplace visualblocks wordcount magentovariable magentowidget emoticons';
+                $settings['toolbar1'] = 'magentovariable magentowidget | blocks | styles | fontfamily'
+                    . ' | fontsizeinput | lineheight | forecolor backcolor | bold italic underline strikethrough'
+                    . ' | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
             } else {
-                $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link media noneditable paste print table textcolor toc visualchars anchor charmap codesample contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
-                $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect | fontselect | fontsizeselect | lineheight | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent';
+                $settings['plugins'] = 'advlist autolink code colorpicker directionality hr imagetools link'
+                    . ' media noneditable paste print table textcolor toc visualchars anchor charmap codesample'
+                    . ' contextmenu help image insertdatetime lists nonbreaking pagebreak preview searchreplace'
+                    . ' template textpattern visualblocks wordcount magentovariable magentowidget emoticons';
+                $settings['toolbar1'] = 'magentovariable magentowidget | formatselect | styleselect'
+                    . ' | fontselect | fontsizeselect | lineheight | forecolor backcolor | bold italic underline'
+                    . ' strikethrough | alignleft aligncenter alignright alignjustify'
+                    . ' | bullist numlist outdent indent';
                 $settings['force_p_newlines'] = false;
             }
 
-            $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime | widget | searchreplace visualblocks  help | hr pagebreak | emoticons';
+            $settings['toolbar2'] = ' undo redo  | link anchor table charmap | image media insertdatetime'
+                . ' | widget | searchreplace visualblocks  help | hr pagebreak | emoticons';
 
             $settings['valid_children'] = '+body[style]';
 
@@ -162,7 +177,6 @@ class ConfigPlugin
         return $wysiwygState;
     }
 
-
     /**
      * Check whether Wysiwyg is enabled or not
      *
@@ -175,7 +189,10 @@ class ConfigPlugin
             'mfwysiwygadvanced/general/' . $type . '_enabled',
             ScopeInterface::SCOPE_STORE
         );
-        return in_array($wysiwygState, [\Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_ENABLED, \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_HIDDEN]);
+        return in_array($wysiwygState, [
+            \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_ENABLED,
+            \Magento\Cms\Model\Wysiwyg\Config::WYSIWYG_HIDDEN
+        ]);
     }
 
     /**
