@@ -26,7 +26,9 @@ class ConfigInterface
 
     /**
      * ConfigPlugin constructor.
-     * @param null $activeEditor
+     *
+     * @param RequestInterface $request
+     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         RequestInterface $request,
@@ -37,11 +39,14 @@ class ConfigInterface
     }
 
     /**
-     * @param mixed
-     * @param $result
+     * Override PageBuilder enabled state based on store config for the current page type.
+     *
+     * @param mixed $subject
+     * @param mixed $result
      * @return mixed|null
      */
-    public function afterIsEnabled($subject,$result) {
+    public function afterIsEnabled($subject, $result)
+    {
         if (!$result) {
             return $result;
         }
@@ -71,5 +76,4 @@ class ConfigInterface
         }
         return $result;
     }
-
 }
